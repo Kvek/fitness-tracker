@@ -17,7 +17,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "npx eslint './src/**/*.{js,jsx,ts,tsx}' .gitignore --quiet --cache --fix --no-error-on-unmatched-pattern --f mo",
+    "lint": "npx eslint './src/**/*.{js,jsx,ts,tsx}' .gitignore --quiet --fix --no-error-on-unmatched-pattern --f mo",
     "format": "prettier --write './src/**/*.{js,jsx,ts,tsx}'"
   },
   "eslintConfig": {
