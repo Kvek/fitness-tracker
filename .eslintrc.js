@@ -28,21 +28,27 @@ module.exports = {
     "import/prefer-default-export": 0,
     "import/no-unresolved": 0,
     "import/extensions": 0,
-    "simple-import-sort/imports": "error",
+    "simple-import-sort/imports": [
+      "error",
+      {
+        groups: [
+          ["^(react|redux)"],
+          ["^(components)"],
+          ["^@"],
+          ["^(@company|@ui||utils|config|vendored-lib)(/.*|$)"],
+          ["^.+\\.s?css$"],
+        ],
+      },
+    ],
+    "import/newline-after-import": "error",
     "simple-import-sort/exports": "error",
     "sort-imports": "off",
     "import/order": "off",
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off",
     "prettier/prettier": "error",
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": 0,
+    "no-unused-vars": 0,
   },
-  overrides: [
-    {
-      files: "./src/**/*.{js,jsx,ts,tsx}",
-      rules: {
-        "simple-import-sort/imports": "off",
-        "import/order": ["error", { "newlines-between": "always" }],
-      },
-    },
-  ],
 };
