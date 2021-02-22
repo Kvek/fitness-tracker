@@ -19,12 +19,16 @@ export const globalThemeVariables = {
   transition: {
     speed: ".15s",
   },
+  primaryColor: "#f5f5f5",
+  secondaryColor: "#111927",
 };
 
 export type GlobalThemeType = {
   bgColor: string;
   color: string;
   transition: typeof globalThemeVariables.transition;
+  primaryColor: string;
+  secondaryColor: string;
 };
 
 export const styled = baseStyled as ThemedStyledInterface<GlobalThemeType>;

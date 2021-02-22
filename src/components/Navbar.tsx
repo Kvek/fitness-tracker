@@ -7,13 +7,13 @@ import { styled } from "global-theme";
 import { setDarkTheme } from "store/theme/actions";
 
 const NavBarContainer = styled.div`
-  width: 100%;
   height: 50px;
   box-shadow: 0 0 15px rgb(0 0 0 / 40%);
   display: flex;
   align-items: center;
   justify-content: flex-end;
   padding: 5px 15px;
+  width: calc(100% - 30px);
 
   svg {
     cursor: pointer;

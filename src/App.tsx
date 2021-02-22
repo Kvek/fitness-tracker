@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 
-import Navbar from "components/Navbar";
+import { Routes } from "components/Routes";
 
 import { globalTheme, globalThemeVariables, styled } from "global-theme";
 import { AppState } from "store/rootType";
@@ -10,7 +10,6 @@ const MainContainer = styled.div`
   background-color: ${({ theme }) => theme.bgColor};
   transition: ${({ theme }) =>
     `background-color ${theme.transition.speed} ease-in`};
-  display: flex;
   height: 100vh;
 `;
 
@@ -26,7 +25,7 @@ export const App = () => {
   return (
     <ThemeProvider theme={currentTheme}>
       <MainContainer>
-        <Navbar />
+        <Routes />
       </MainContainer>
     </ThemeProvider>
   );
