@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { Dashboard } from "components/Dashboard/Dashboard";
 import { Login } from "components/Login/Login";
-import Navbar from "components/Navbar";
+import Navbar from "components/Navbar/Navbar";
 
 import { Router } from "@reach/router";
 
