@@ -1,8 +1,14 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 
-import { Brightness2Outlined, WbSunny } from "@material-ui/icons";
+import {
+  ArrowDropDown,
+  Brightness2Outlined,
+  WbSunny,
+} from "@material-ui/icons";
 
+import { NavbarIcon } from "./NavbarIcon";
+import { NavbarMenu } from "./NavbarMenu";
 import { styled } from "global-theme";
 import { setDarkTheme } from "store/theme/actions";
 
@@ -13,17 +19,12 @@ const NavBarContainer = styled.div`
   align-items: center;
   justify-content: flex-end;
   padding: 5px 15px;
-  width: calc(100% - 30px);
-
-  svg {
-    cursor: pointer;
-    color: ${({ theme }) => theme.color};
-    transition: ${({ theme }) => `color ${theme.transition.speed} ease-in`};
-  }
+  position: relative;
 `;
 
 const Navbar = () => {
   const [toggleDarkTheme, setToggleDarkTheme] = useState(true);
+  const [showMenu, setShowMenu] = useState(false);
   const dispatch = useDispatch();
 
   const toggleTheme = () => setToggleDarkTheme((prevState) => !prevState);
@@ -32,16 +33,23 @@ const Navbar = () => {
     dispatch(setDarkTheme(toggleDarkTheme));
   }, [toggleDarkTheme]);
 
+  const iconToggle = toggleDarkTheme ? (
+    <WbSunny />
+  ) : (
+    <Brightness2Outlined style={{ transform: "rotate(150deg)" }} />
+  );
+
   return (
     <NavBarContainer>
-      {toggleDarkTheme ? (
-        <WbSunny onClick={toggleTheme} />
-      ) : (
-        <Brightness2Outlined
-          onClick={toggleTheme}
-          style={{ transform: "rotate(150deg)" }}
-        />
-      )}
+      <NavbarIcon onClick={toggleTheme} icon={iconToggle} />
+      <NavbarIcon
+        icon={<ArrowDropDown />}
+        onIconHover={() => setShowMenu(true)}
+        onIconLeave={() => setShowMenu(false)}
+        open={showMenu}
+      >
+        <NavbarMenu />
+      </NavbarIcon>
     </NavBarContainer>
   );
 };

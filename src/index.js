@@ -3,6 +3,7 @@ import { Provider } from "react-redux";
 
 import "./index.css";
 
+import "@atlaskit/css-reset";
 import { App } from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { store } from "./store/store";
